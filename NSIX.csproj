@@ -1,0 +1,1834 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{751483C3-8A41-42FD-953A-C70FCC783950}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NSIX</RootNamespace>
+    <AssemblyName>NSIX</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44329</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="hbehr.recaptcha, Version=1.5.1.15646, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReCaptcha-AspNet.1.5.1\lib\net461\hbehr.recaptcha.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.3\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.CommandLine, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.CommandLine.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Configuration.CommandLine.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=2.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.2.1.0\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Maps.MapControl.WPF, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Maps.MapControl.WPF.1.0.0.3\lib\net40-Client\Microsoft.Maps.MapControl.WPF.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.0\lib\net451\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.0\lib\net451\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.0\lib\net451\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.0\lib\net451\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.0\lib\net451\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.0\lib\net451\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.0\lib\net451\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.0\lib\net451\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.0\lib\net451\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.0\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ExternalSARController.cs" />
+    <Compile Include="Controllers\FileController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PaginatedList.cs" />
+    <Compile Include="Controllers\PeopleController.cs" />
+    <Compile Include="Controllers\SARController.cs" />
+    <Compile Include="Controllers\SuspiciousActivityCodeSimpleTypesController.cs" />
+    <Compile Include="Controllers\TargetSectorCodeSimpleTypesController.cs" />
+    <Compile Include="Controllers\TipClassCodeSimpleTypesController.cs" />
+    <Compile Include="Controllers\TipDomainCodeSimpleTypesController.cs" />
+    <Compile Include="Controllers\VehicleMakesController.cs" />
+    <Compile Include="Controllers\VehicleModelsController.cs" />
+    <Compile Include="Controllers\VehiclesController.cs" />
+    <Compile Include="Data\NSISARContext.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901231915161_Poo.cs" />
+    <Compile Include="Migrations\201901231915161_Poo.Designer.cs">
+      <DependentUpon>201901231915161_Poo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Ethnicity.cs" />
+    <Compile Include="Models\File.cs" />
+    <Compile Include="Models\FileType.cs" />
+    <Compile Include="Models\HairColor.cs" />
+    <Compile Include="Models\EyeColor.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\Incidents.cs" />
+    <Compile Include="Models\Nationality.cs" />
+    <Compile Include="Models\SuperIndexData.cs" />
+    <Compile Include="Models\VehicleIndexData.cs" />
+    <Compile Include="Models\SarVehicle.cs" />
+    <Compile Include="Models\SarIndexData.cs" />
+    <Compile Include="Models\SkinTone.cs" />
+    <Compile Include="Models\Race.cs" />
+    <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleColor.cs" />
+    <Compile Include="Models\VehicleMake.cs" />
+    <Compile Include="Models\VehicleModel.cs" />
+    <Compile Include="Models\Weight.cs" />
+    <Compile Include="Models\Height.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Person.cs" />
+    <Compile Include="Models\SAR.cs" />
+    <Compile Include="Models\State.cs" />
+    <Compile Include="Models\SuspiciousActivityCodeSimpleType.cs" />
+    <Compile Include="Models\TargetSectorCodeSimpleType.cs" />
+    <Compile Include="Models\TipClassCodeSimpleType.cs" />
+    <Compile Include="Models\TipDomainCodeSimpleType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\NSIX.dll" />
+    <Content Include="bin\NSIX.pdb" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\png\account-login-2x.png" />
+    <Content Include="Content\png\account-login-3x.png" />
+    <Content Include="Content\png\account-login-4x.png" />
+    <Content Include="Content\png\account-login-6x.png" />
+    <Content Include="Content\png\account-login-8x.png" />
+    <Content Include="Content\png\account-login.png" />
+    <Content Include="Content\png\account-logout-2x.png" />
+    <Content Include="Content\png\account-logout-3x.png" />
+    <Content Include="Content\png\account-logout-4x.png" />
+    <Content Include="Content\png\account-logout-6x.png" />
+    <Content Include="Content\png\account-logout-8x.png" />
+    <Content Include="Content\png\account-logout.png" />
+    <Content Include="Content\png\action-redo-2x.png" />
+    <Content Include="Content\png\action-redo-3x.png" />
+    <Content Include="Content\png\action-redo-4x.png" />
+    <Content Include="Content\png\action-redo-6x.png" />
+    <Content Include="Content\png\action-redo-8x.png" />
+    <Content Include="Content\png\action-redo.png" />
+    <Content Include="Content\png\action-undo-2x.png" />
+    <Content Include="Content\png\action-undo-3x.png" />
+    <Content Include="Content\png\action-undo-4x.png" />
+    <Content Include="Content\png\action-undo-6x.png" />
+    <Content Include="Content\png\action-undo-8x.png" />
+    <Content Include="Content\png\action-undo.png" />
+    <Content Include="Content\png\align-center-2x.png" />
+    <Content Include="Content\png\align-center-3x.png" />
+    <Content Include="Content\png\align-center-4x.png" />
+    <Content Include="Content\png\align-center-6x.png" />
+    <Content Include="Content\png\align-center-8x.png" />
+    <Content Include="Content\png\align-center.png" />
+    <Content Include="Content\png\align-left-2x.png" />
+    <Content Include="Content\png\align-left-3x.png" />
+    <Content Include="Content\png\align-left-4x.png" />
+    <Content Include="Content\png\align-left-6x.png" />
+    <Content Include="Content\png\align-left-8x.png" />
+    <Content Include="Content\png\align-left.png" />
+    <Content Include="Content\png\align-right-2x.png" />
+    <Content Include="Content\png\align-right-3x.png" />
+    <Content Include="Content\png\align-right-4x.png" />
+    <Content Include="Content\png\align-right-6x.png" />
+    <Content Include="Content\png\align-right-8x.png" />
+    <Content Include="Content\png\align-right.png" />
+    <Content Include="Content\png\aperture-2x.png" />
+    <Content Include="Content\png\aperture-3x.png" />
+    <Content Include="Content\png\aperture-4x.png" />
+    <Content Include="Content\png\aperture-6x.png" />
+    <Content Include="Content\png\aperture-8x.png" />
+    <Content Include="Content\png\aperture.png" />
+    <Content Include="Content\png\arrow-bottom-2x.png" />
+    <Content Include="Content\png\arrow-bottom-3x.png" />
+    <Content Include="Content\png\arrow-bottom-4x.png" />
+    <Content Include="Content\png\arrow-bottom-6x.png" />
+    <Content Include="Content\png\arrow-bottom-8x.png" />
+    <Content Include="Content\png\arrow-bottom.png" />
+    <Content Include="Content\png\arrow-circle-bottom-2x.png" />
+    <Content Include="Content\png\arrow-circle-bottom-3x.png" />
+    <Content Include="Content\png\arrow-circle-bottom-4x.png" />
+    <Content Include="Content\png\arrow-circle-bottom-6x.png" />
+    <Content Include="Content\png\arrow-circle-bottom-8x.png" />
+    <Content Include="Content\png\arrow-circle-bottom.png" />
+    <Content Include="Content\png\arrow-circle-left-2x.png" />
+    <Content Include="Content\png\arrow-circle-left-3x.png" />
+    <Content Include="Content\png\arrow-circle-left-4x.png" />
+    <Content Include="Content\png\arrow-circle-left-6x.png" />
+    <Content Include="Content\png\arrow-circle-left-8x.png" />
+    <Content Include="Content\png\arrow-circle-left.png" />
+    <Content Include="Content\png\arrow-circle-right-2x.png" />
+    <Content Include="Content\png\arrow-circle-right-3x.png" />
+    <Content Include="Content\png\arrow-circle-right-4x.png" />
+    <Content Include="Content\png\arrow-circle-right-6x.png" />
+    <Content Include="Content\png\arrow-circle-right-8x.png" />
+    <Content Include="Content\png\arrow-circle-right.png" />
+    <Content Include="Content\png\arrow-circle-top-2x.png" />
+    <Content Include="Content\png\arrow-circle-top-3x.png" />
+    <Content Include="Content\png\arrow-circle-top-4x.png" />
+    <Content Include="Content\png\arrow-circle-top-6x.png" />
+    <Content Include="Content\png\arrow-circle-top-8x.png" />
+    <Content Include="Content\png\arrow-circle-top.png" />
+    <Content Include="Content\png\arrow-left-2x.png" />
+    <Content Include="Content\png\arrow-left-3x.png" />
+    <Content Include="Content\png\arrow-left-4x.png" />
+    <Content Include="Content\png\arrow-left-6x.png" />
+    <Content Include="Content\png\arrow-left-8x.png" />
+    <Content Include="Content\png\arrow-left.png" />
+    <Content Include="Content\png\arrow-right-2x.png" />
+    <Content Include="Content\png\arrow-right-3x.png" />
+    <Content Include="Content\png\arrow-right-4x.png" />
+    <Content Include="Content\png\arrow-right-6x.png" />
+    <Content Include="Content\png\arrow-right-8x.png" />
+    <Content Include="Content\png\arrow-right.png" />
+    <Content Include="Content\png\arrow-thick-bottom-2x.png" />
+    <Content Include="Content\png\arrow-thick-bottom-3x.png" />
+    <Content Include="Content\png\arrow-thick-bottom-4x.png" />
+    <Content Include="Content\png\arrow-thick-bottom-6x.png" />
+    <Content Include="Content\png\arrow-thick-bottom-8x.png" />
+    <Content Include="Content\png\arrow-thick-bottom.png" />
+    <Content Include="Content\png\arrow-thick-left-2x.png" />
+    <Content Include="Content\png\arrow-thick-left-3x.png" />
+    <Content Include="Content\png\arrow-thick-left-4x.png" />
+    <Content Include="Content\png\arrow-thick-left-6x.png" />
+    <Content Include="Content\png\arrow-thick-left-8x.png" />
+    <Content Include="Content\png\arrow-thick-left.png" />
+    <Content Include="Content\png\arrow-thick-right-2x.png" />
+    <Content Include="Content\png\arrow-thick-right-3x.png" />
+    <Content Include="Content\png\arrow-thick-right-4x.png" />
+    <Content Include="Content\png\arrow-thick-right-6x.png" />
+    <Content Include="Content\png\arrow-thick-right-8x.png" />
+    <Content Include="Content\png\arrow-thick-right.png" />
+    <Content Include="Content\png\arrow-thick-top-2x.png" />
+    <Content Include="Content\png\arrow-thick-top-3x.png" />
+    <Content Include="Content\png\arrow-thick-top-4x.png" />
+    <Content Include="Content\png\arrow-thick-top-6x.png" />
+    <Content Include="Content\png\arrow-thick-top-8x.png" />
+    <Content Include="Content\png\arrow-thick-top.png" />
+    <Content Include="Content\png\arrow-top-2x.png" />
+    <Content Include="Content\png\arrow-top-3x.png" />
+    <Content Include="Content\png\arrow-top-4x.png" />
+    <Content Include="Content\png\arrow-top-6x.png" />
+    <Content Include="Content\png\arrow-top-8x.png" />
+    <Content Include="Content\png\arrow-top.png" />
+    <Content Include="Content\png\audio-2x.png" />
+    <Content Include="Content\png\audio-3x.png" />
+    <Content Include="Content\png\audio-4x.png" />
+    <Content Include="Content\png\audio-6x.png" />
+    <Content Include="Content\png\audio-8x.png" />
+    <Content Include="Content\png\audio-spectrum-2x.png" />
+    <Content Include="Content\png\audio-spectrum-3x.png" />
+    <Content Include="Content\png\audio-spectrum-4x.png" />
+    <Content Include="Content\png\audio-spectrum-6x.png" />
+    <Content Include="Content\png\audio-spectrum-8x.png" />
+    <Content Include="Content\png\audio-spectrum.png" />
+    <Content Include="Content\png\audio.png" />
+    <Content Include="Content\png\badge-2x.png" />
+    <Content Include="Content\png\badge-3x.png" />
+    <Content Include="Content\png\badge-4x.png" />
+    <Content Include="Content\png\badge-6x.png" />
+    <Content Include="Content\png\badge-8x.png" />
+    <Content Include="Content\png\badge.png" />
+    <Content Include="Content\png\ban-2x.png" />
+    <Content Include="Content\png\ban-3x.png" />
+    <Content Include="Content\png\ban-4x.png" />
+    <Content Include="Content\png\ban-6x.png" />
+    <Content Include="Content\png\ban-8x.png" />
+    <Content Include="Content\png\ban.png" />
+    <Content Include="Content\png\bar-chart-2x.png" />
+    <Content Include="Content\png\bar-chart-3x.png" />
+    <Content Include="Content\png\bar-chart-4x.png" />
+    <Content Include="Content\png\bar-chart-6x.png" />
+    <Content Include="Content\png\bar-chart-8x.png" />
+    <Content Include="Content\png\bar-chart.png" />
+    <Content Include="Content\png\basket-2x.png" />
+    <Content Include="Content\png\basket-3x.png" />
+    <Content Include="Content\png\basket-4x.png" />
+    <Content Include="Content\png\basket-6x.png" />
+    <Content Include="Content\png\basket-8x.png" />
+    <Content Include="Content\png\basket.png" />
+    <Content Include="Content\png\battery-empty-2x.png" />
+    <Content Include="Content\png\battery-empty-3x.png" />
+    <Content Include="Content\png\battery-empty-4x.png" />
+    <Content Include="Content\png\battery-empty-6x.png" />
+    <Content Include="Content\png\battery-empty-8x.png" />
+    <Content Include="Content\png\battery-empty.png" />
+    <Content Include="Content\png\battery-full-2x.png" />
+    <Content Include="Content\png\battery-full-3x.png" />
+    <Content Include="Content\png\battery-full-4x.png" />
+    <Content Include="Content\png\battery-full-6x.png" />
+    <Content Include="Content\png\battery-full-8x.png" />
+    <Content Include="Content\png\battery-full.png" />
+    <Content Include="Content\png\beaker-2x.png" />
+    <Content Include="Content\png\beaker-3x.png" />
+    <Content Include="Content\png\beaker-4x.png" />
+    <Content Include="Content\png\beaker-6x.png" />
+    <Content Include="Content\png\beaker-8x.png" />
+    <Content Include="Content\png\beaker.png" />
+    <Content Include="Content\png\bell-2x.png" />
+    <Content Include="Content\png\bell-3x.png" />
+    <Content Include="Content\png\bell-4x.png" />
+    <Content Include="Content\png\bell-6x.png" />
+    <Content Include="Content\png\bell-8x.png" />
+    <Content Include="Content\png\bell.png" />
+    <Content Include="Content\png\bluetooth-2x.png" />
+    <Content Include="Content\png\bluetooth-3x.png" />
+    <Content Include="Content\png\bluetooth-4x.png" />
+    <Content Include="Content\png\bluetooth-6x.png" />
+    <Content Include="Content\png\bluetooth-8x.png" />
+    <Content Include="Content\png\bluetooth.png" />
+    <Content Include="Content\png\bold-2x.png" />
+    <Content Include="Content\png\bold-3x.png" />
+    <Content Include="Content\png\bold-4x.png" />
+    <Content Include="Content\png\bold-6x.png" />
+    <Content Include="Content\png\bold-8x.png" />
+    <Content Include="Content\png\bold.png" />
+    <Content Include="Content\png\bolt-2x.png" />
+    <Content Include="Content\png\bolt-3x.png" />
+    <Content Include="Content\png\bolt-4x.png" />
+    <Content Include="Content\png\bolt-6x.png" />
+    <Content Include="Content\png\bolt-8x.png" />
+    <Content Include="Content\png\bolt.png" />
+    <Content Include="Content\png\book-2x.png" />
+    <Content Include="Content\png\book-3x.png" />
+    <Content Include="Content\png\book-4x.png" />
+    <Content Include="Content\png\book-6x.png" />
+    <Content Include="Content\png\book-8x.png" />
+    <Content Include="Content\png\book.png" />
+    <Content Include="Content\png\bookmark-2x.png" />
+    <Content Include="Content\png\bookmark-3x.png" />
+    <Content Include="Content\png\bookmark-4x.png" />
+    <Content Include="Content\png\bookmark-6x.png" />
+    <Content Include="Content\png\bookmark-8x.png" />
+    <Content Include="Content\png\bookmark.png" />
+    <Content Include="Content\png\box-2x.png" />
+    <Content Include="Content\png\box-3x.png" />
+    <Content Include="Content\png\box-4x.png" />
+    <Content Include="Content\png\box-6x.png" />
+    <Content Include="Content\png\box-8x.png" />
+    <Content Include="Content\png\box.png" />
+    <Content Include="Content\png\briefcase-2x.png" />
+    <Content Include="Content\png\briefcase-3x.png" />
+    <Content Include="Content\png\briefcase-4x.png" />
+    <Content Include="Content\png\briefcase-6x.png" />
+    <Content Include="Content\png\briefcase-8x.png" />
+    <Content Include="Content\png\briefcase.png" />
+    <Content Include="Content\png\british-pound-2x.png" />
+    <Content Include="Content\png\british-pound-3x.png" />
+    <Content Include="Content\png\british-pound-4x.png" />
+    <Content Include="Content\png\british-pound-6x.png" />
+    <Content Include="Content\png\british-pound-8x.png" />
+    <Content Include="Content\png\british-pound.png" />
+    <Content Include="Content\png\browser-2x.png" />
+    <Content Include="Content\png\browser-3x.png" />
+    <Content Include="Content\png\browser-4x.png" />
+    <Content Include="Content\png\browser-6x.png" />
+    <Content Include="Content\png\browser-8x.png" />
+    <Content Include="Content\png\browser.png" />
+    <Content Include="Content\png\brush-2x.png" />
+    <Content Include="Content\png\brush-3x.png" />
+    <Content Include="Content\png\brush-4x.png" />
+    <Content Include="Content\png\brush-6x.png" />
+    <Content Include="Content\png\brush-8x.png" />
+    <Content Include="Content\png\brush.png" />
+    <Content Include="Content\png\bug-2x.png" />
+    <Content Include="Content\png\bug-3x.png" />
+    <Content Include="Content\png\bug-4x.png" />
+    <Content Include="Content\png\bug-6x.png" />
+    <Content Include="Content\png\bug-8x.png" />
+    <Content Include="Content\png\bug.png" />
+    <Content Include="Content\png\bullhorn-2x.png" />
+    <Content Include="Content\png\bullhorn-3x.png" />
+    <Content Include="Content\png\bullhorn-4x.png" />
+    <Content Include="Content\png\bullhorn-6x.png" />
+    <Content Include="Content\png\bullhorn-8x.png" />
+    <Content Include="Content\png\bullhorn.png" />
+    <Content Include="Content\png\calculator-2x.png" />
+    <Content Include="Content\png\calculator-3x.png" />
+    <Content Include="Content\png\calculator-4x.png" />
+    <Content Include="Content\png\calculator-6x.png" />
+    <Content Include="Content\png\calculator-8x.png" />
+    <Content Include="Content\png\calculator.png" />
+    <Content Include="Content\png\calendar-2x.png" />
+    <Content Include="Content\png\calendar-3x.png" />
+    <Content Include="Content\png\calendar-4x.png" />
+    <Content Include="Content\png\calendar-6x.png" />
+    <Content Include="Content\png\calendar-8x.png" />
+    <Content Include="Content\png\calendar.png" />
+    <Content Include="Content\png\camera-slr-2x.png" />
+    <Content Include="Content\png\camera-slr-3x.png" />
+    <Content Include="Content\png\camera-slr-4x.png" />
+    <Content Include="Content\png\camera-slr-6x.png" />
+    <Content Include="Content\png\camera-slr-8x.png" />
+    <Content Include="Content\png\camera-slr.png" />
+    <Content Include="Content\png\caret-bottom-2x.png" />
+    <Content Include="Content\png\caret-bottom-3x.png" />
+    <Content Include="Content\png\caret-bottom-4x.png" />
+    <Content Include="Content\png\caret-bottom-6x.png" />
+    <Content Include="Content\png\caret-bottom-8x.png" />
+    <Content Include="Content\png\caret-bottom.png" />
+    <Content Include="Content\png\caret-left-2x.png" />
+    <Content Include="Content\png\caret-left-3x.png" />
+    <Content Include="Content\png\caret-left-4x.png" />
+    <Content Include="Content\png\caret-left-6x.png" />
+    <Content Include="Content\png\caret-left-8x.png" />
+    <Content Include="Content\png\caret-left.png" />
+    <Content Include="Content\png\caret-right-2x.png" />
+    <Content Include="Content\png\caret-right-3x.png" />
+    <Content Include="Content\png\caret-right-4x.png" />
+    <Content Include="Content\png\caret-right-6x.png" />
+    <Content Include="Content\png\caret-right-8x.png" />
+    <Content Include="Content\png\caret-right.png" />
+    <Content Include="Content\png\caret-top-2x.png" />
+    <Content Include="Content\png\caret-top-3x.png" />
+    <Content Include="Content\png\caret-top-4x.png" />
+    <Content Include="Content\png\caret-top-6x.png" />
+    <Content Include="Content\png\caret-top-8x.png" />
+    <Content Include="Content\png\caret-top.png" />
+    <Content Include="Content\png\cart-2x.png" />
+    <Content Include="Content\png\cart-3x.png" />
+    <Content Include="Content\png\cart-4x.png" />
+    <Content Include="Content\png\cart-6x.png" />
+    <Content Include="Content\png\cart-8x.png" />
+    <Content Include="Content\png\cart.png" />
+    <Content Include="Content\png\chat-2x.png" />
+    <Content Include="Content\png\chat-3x.png" />
+    <Content Include="Content\png\chat-4x.png" />
+    <Content Include="Content\png\chat-6x.png" />
+    <Content Include="Content\png\chat-8x.png" />
+    <Content Include="Content\png\chat.png" />
+    <Content Include="Content\png\check-2x.png" />
+    <Content Include="Content\png\check-3x.png" />
+    <Content Include="Content\png\check-4x.png" />
+    <Content Include="Content\png\check-6x.png" />
+    <Content Include="Content\png\check-8x.png" />
+    <Content Include="Content\png\check.png" />
+    <Content Include="Content\png\chevron-bottom-2x.png" />
+    <Content Include="Content\png\chevron-bottom-3x.png" />
+    <Content Include="Content\png\chevron-bottom-4x.png" />
+    <Content Include="Content\png\chevron-bottom-6x.png" />
+    <Content Include="Content\png\chevron-bottom-8x.png" />
+    <Content Include="Content\png\chevron-bottom.png" />
+    <Content Include="Content\png\chevron-left-2x.png" />
+    <Content Include="Content\png\chevron-left-3x.png" />
+    <Content Include="Content\png\chevron-left-4x.png" />
+    <Content Include="Content\png\chevron-left-6x.png" />
+    <Content Include="Content\png\chevron-left-8x.png" />
+    <Content Include="Content\png\chevron-left.png" />
+    <Content Include="Content\png\chevron-right-2x.png" />
+    <Content Include="Content\png\chevron-right-3x.png" />
+    <Content Include="Content\png\chevron-right-4x.png" />
+    <Content Include="Content\png\chevron-right-6x.png" />
+    <Content Include="Content\png\chevron-right-8x.png" />
+    <Content Include="Content\png\chevron-right.png" />
+    <Content Include="Content\png\chevron-top-2x.png" />
+    <Content Include="Content\png\chevron-top-3x.png" />
+    <Content Include="Content\png\chevron-top-4x.png" />
+    <Content Include="Content\png\chevron-top-6x.png" />
+    <Content Include="Content\png\chevron-top-8x.png" />
+    <Content Include="Content\png\chevron-top.png" />
+    <Content Include="Content\png\circle-check-2x.png" />
+    <Content Include="Content\png\circle-check-3x.png" />
+    <Content Include="Content\png\circle-check-4x.png" />
+    <Content Include="Content\png\circle-check-6x.png" />
+    <Content Include="Content\png\circle-check-8x.png" />
+    <Content Include="Content\png\circle-check.png" />
+    <Content Include="Content\png\circle-x-2x.png" />
+    <Content Include="Content\png\circle-x-3x.png" />
+    <Content Include="Content\png\circle-x-4x.png" />
+    <Content Include="Content\png\circle-x-6x.png" />
+    <Content Include="Content\png\circle-x-8x.png" />
+    <Content Include="Content\png\circle-x.png" />
+    <Content Include="Content\png\clipboard-2x.png" />
+    <Content Include="Content\png\clipboard-3x.png" />
+    <Content Include="Content\png\clipboard-4x.png" />
+    <Content Include="Content\png\clipboard-6x.png" />
+    <Content Include="Content\png\clipboard-8x.png" />
+    <Content Include="Content\png\clipboard.png" />
+    <Content Include="Content\png\clock-2x.png" />
+    <Content Include="Content\png\clock-3x.png" />
+    <Content Include="Content\png\clock-4x.png" />
+    <Content Include="Content\png\clock-6x.png" />
+    <Content Include="Content\png\clock-8x.png" />
+    <Content Include="Content\png\clock.png" />
+    <Content Include="Content\png\cloud-2x.png" />
+    <Content Include="Content\png\cloud-3x.png" />
+    <Content Include="Content\png\cloud-4x.png" />
+    <Content Include="Content\png\cloud-6x.png" />
+    <Content Include="Content\png\cloud-8x.png" />
+    <Content Include="Content\png\cloud-download-2x.png" />
+    <Content Include="Content\png\cloud-download-3x.png" />
+    <Content Include="Content\png\cloud-download-4x.png" />
+    <Content Include="Content\png\cloud-download-6x.png" />
+    <Content Include="Content\png\cloud-download-8x.png" />
+    <Content Include="Content\png\cloud-download.png" />
+    <Content Include="Content\png\cloud-upload-2x.png" />
+    <Content Include="Content\png\cloud-upload-3x.png" />
+    <Content Include="Content\png\cloud-upload-4x.png" />
+    <Content Include="Content\png\cloud-upload-6x.png" />
+    <Content Include="Content\png\cloud-upload-8x.png" />
+    <Content Include="Content\png\cloud-upload.png" />
+    <Content Include="Content\png\cloud.png" />
+    <Content Include="Content\png\cloudy-2x.png" />
+    <Content Include="Content\png\cloudy-3x.png" />
+    <Content Include="Content\png\cloudy-4x.png" />
+    <Content Include="Content\png\cloudy-6x.png" />
+    <Content Include="Content\png\cloudy-8x.png" />
+    <Content Include="Content\png\cloudy.png" />
+    <Content Include="Content\png\code-2x.png" />
+    <Content Include="Content\png\code-3x.png" />
+    <Content Include="Content\png\code-4x.png" />
+    <Content Include="Content\png\code-6x.png" />
+    <Content Include="Content\png\code-8x.png" />
+    <Content Include="Content\png\code.png" />
+    <Content Include="Content\png\cog-2x.png" />
+    <Content Include="Content\png\cog-3x.png" />
+    <Content Include="Content\png\cog-4x.png" />
+    <Content Include="Content\png\cog-6x.png" />
+    <Content Include="Content\png\cog-8x.png" />
+    <Content Include="Content\png\cog.png" />
+    <Content Include="Content\png\collapse-down-2x.png" />
+    <Content Include="Content\png\collapse-down-3x.png" />
+    <Content Include="Content\png\collapse-down-4x.png" />
+    <Content Include="Content\png\collapse-down-6x.png" />
+    <Content Include="Content\png\collapse-down-8x.png" />
+    <Content Include="Content\png\collapse-down.png" />
+    <Content Include="Content\png\collapse-left-2x.png" />
+    <Content Include="Content\png\collapse-left-3x.png" />
+    <Content Include="Content\png\collapse-left-4x.png" />
+    <Content Include="Content\png\collapse-left-6x.png" />
+    <Content Include="Content\png\collapse-left-8x.png" />
+    <Content Include="Content\png\collapse-left.png" />
+    <Content Include="Content\png\collapse-right-2x.png" />
+    <Content Include="Content\png\collapse-right-3x.png" />
+    <Content Include="Content\png\collapse-right-4x.png" />
+    <Content Include="Content\png\collapse-right-6x.png" />
+    <Content Include="Content\png\collapse-right-8x.png" />
+    <Content Include="Content\png\collapse-right.png" />
+    <Content Include="Content\png\collapse-up-2x.png" />
+    <Content Include="Content\png\collapse-up-3x.png" />
+    <Content Include="Content\png\collapse-up-4x.png" />
+    <Content Include="Content\png\collapse-up-6x.png" />
+    <Content Include="Content\png\collapse-up-8x.png" />
+    <Content Include="Content\png\collapse-up.png" />
+    <Content Include="Content\png\command-2x.png" />
+    <Content Include="Content\png\command-3x.png" />
+    <Content Include="Content\png\command-4x.png" />
+    <Content Include="Content\png\command-6x.png" />
+    <Content Include="Content\png\command-8x.png" />
+    <Content Include="Content\png\command.png" />
+    <Content Include="Content\png\comment-square-2x.png" />
+    <Content Include="Content\png\comment-square-3x.png" />
+    <Content Include="Content\png\comment-square-4x.png" />
+    <Content Include="Content\png\comment-square-6x.png" />
+    <Content Include="Content\png\comment-square-8x.png" />
+    <Content Include="Content\png\comment-square.png" />
+    <Content Include="Content\png\compass-2x.png" />
+    <Content Include="Content\png\compass-3x.png" />
+    <Content Include="Content\png\compass-4x.png" />
+    <Content Include="Content\png\compass-6x.png" />
+    <Content Include="Content\png\compass-8x.png" />
+    <Content Include="Content\png\compass.png" />
+    <Content Include="Content\png\contrast-2x.png" />
+    <Content Include="Content\png\contrast-3x.png" />
+    <Content Include="Content\png\contrast-4x.png" />
+    <Content Include="Content\png\contrast-6x.png" />
+    <Content Include="Content\png\contrast-8x.png" />
+    <Content Include="Content\png\contrast.png" />
+    <Content Include="Content\png\copywriting-2x.png" />
+    <Content Include="Content\png\copywriting-3x.png" />
+    <Content Include="Content\png\copywriting-4x.png" />
+    <Content Include="Content\png\copywriting-6x.png" />
+    <Content Include="Content\png\copywriting-8x.png" />
+    <Content Include="Content\png\copywriting.png" />
+    <Content Include="Content\png\credit-card-2x.png" />
+    <Content Include="Content\png\credit-card-3x.png" />
+    <Content Include="Content\png\credit-card-4x.png" />
+    <Content Include="Content\png\credit-card-6x.png" />
+    <Content Include="Content\png\credit-card-8x.png" />
+    <Content Include="Content\png\credit-card.png" />
+    <Content Include="Content\png\crop-2x.png" />
+    <Content Include="Content\png\crop-3x.png" />
+    <Content Include="Content\png\crop-4x.png" />
+    <Content Include="Content\png\crop-6x.png" />
+    <Content Include="Content\png\crop-8x.png" />
+    <Content Include="Content\png\crop.png" />
+    <Content Include="Content\png\dashboard-2x.png" />
+    <Content Include="Content\png\dashboard-3x.png" />
+    <Content Include="Content\png\dashboard-4x.png" />
+    <Content Include="Content\png\dashboard-6x.png" />
+    <Content Include="Content\png\dashboard-8x.png" />
+    <Content Include="Content\png\dashboard.png" />
+    <Content Include="Content\png\data-transfer-download-2x.png" />
+    <Content Include="Content\png\data-transfer-download-3x.png" />
+    <Content Include="Content\png\data-transfer-download-4x.png" />
+    <Content Include="Content\png\data-transfer-download-6x.png" />
+    <Content Include="Content\png\data-transfer-download-8x.png" />
+    <Content Include="Content\png\data-transfer-download.png" />
+    <Content Include="Content\png\data-transfer-upload-2x.png" />
+    <Content Include="Content\png\data-transfer-upload-3x.png" />
+    <Content Include="Content\png\data-transfer-upload-4x.png" />
+    <Content Include="Content\png\data-transfer-upload-6x.png" />
+    <Content Include="Content\png\data-transfer-upload-8x.png" />
+    <Content Include="Content\png\data-transfer-upload.png" />
+    <Content Include="Content\png\delete-2x.png" />
+    <Content Include="Content\png\delete-3x.png" />
+    <Content Include="Content\png\delete-4x.png" />
+    <Content Include="Content\png\delete-6x.png" />
+    <Content Include="Content\png\delete-8x.png" />
+    <Content Include="Content\png\delete.png" />
+    <Content Include="Content\png\dial-2x.png" />
+    <Content Include="Content\png\dial-3x.png" />
+    <Content Include="Content\png\dial-4x.png" />
+    <Content Include="Content\png\dial-6x.png" />
+    <Content Include="Content\png\dial-8x.png" />
+    <Content Include="Content\png\dial.png" />
+    <Content Include="Content\png\document-2x.png" />
+    <Content Include="Content\png\document-3x.png" />
+    <Content Include="Content\png\document-4x.png" />
+    <Content Include="Content\png\document-6x.png" />
+    <Content Include="Content\png\document-8x.png" />
+    <Content Include="Content\png\document.png" />
+    <Content Include="Content\png\dollar-2x.png" />
+    <Content Include="Content\png\dollar-3x.png" />
+    <Content Include="Content\png\dollar-4x.png" />
+    <Content Include="Content\png\dollar-6x.png" />
+    <Content Include="Content\png\dollar-8x.png" />
+    <Content Include="Content\png\dollar.png" />
+    <Content Include="Content\png\double-quote-sans-left-2x.png" />
+    <Content Include="Content\png\double-quote-sans-left-3x.png" />
+    <Content Include="Content\png\double-quote-sans-left-4x.png" />
+    <Content Include="Content\png\double-quote-sans-left-6x.png" />
+    <Content Include="Content\png\double-quote-sans-left-8x.png" />
+    <Content Include="Content\png\double-quote-sans-left.png" />
+    <Content Include="Content\png\double-quote-sans-right-2x.png" />
+    <Content Include="Content\png\double-quote-sans-right-3x.png" />
+    <Content Include="Content\png\double-quote-sans-right-4x.png" />
+    <Content Include="Content\png\double-quote-sans-right-6x.png" />
+    <Content Include="Content\png\double-quote-sans-right-8x.png" />
+    <Content Include="Content\png\double-quote-sans-right.png" />
+    <Content Include="Content\png\double-quote-serif-left-2x.png" />
+    <Content Include="Content\png\double-quote-serif-left-3x.png" />
+    <Content Include="Content\png\double-quote-serif-left-4x.png" />
+    <Content Include="Content\png\double-quote-serif-left-6x.png" />
+    <Content Include="Content\png\double-quote-serif-left-8x.png" />
+    <Content Include="Content\png\double-quote-serif-left.png" />
+    <Content Include="Content\png\double-quote-serif-right-2x.png" />
+    <Content Include="Content\png\double-quote-serif-right-3x.png" />
+    <Content Include="Content\png\double-quote-serif-right-4x.png" />
+    <Content Include="Content\png\double-quote-serif-right-6x.png" />
+    <Content Include="Content\png\double-quote-serif-right-8x.png" />
+    <Content Include="Content\png\double-quote-serif-right.png" />
+    <Content Include="Content\png\droplet-2x.png" />
+    <Content Include="Content\png\droplet-3x.png" />
+    <Content Include="Content\png\droplet-4x.png" />
+    <Content Include="Content\png\droplet-6x.png" />
+    <Content Include="Content\png\droplet-8x.png" />
+    <Content Include="Content\png\droplet.png" />
+    <Content Include="Content\png\eject-2x.png" />
+    <Content Include="Content\png\eject-3x.png" />
+    <Content Include="Content\png\eject-4x.png" />
+    <Content Include="Content\png\eject-6x.png" />
+    <Content Include="Content\png\eject-8x.png" />
+    <Content Include="Content\png\eject.png" />
+    <Content Include="Content\png\elevator-2x.png" />
+    <Content Include="Content\png\elevator-3x.png" />
+    <Content Include="Content\png\elevator-4x.png" />
+    <Content Include="Content\png\elevator-6x.png" />
+    <Content Include="Content\png\elevator-8x.png" />
+    <Content Include="Content\png\elevator.png" />
+    <Content Include="Content\png\ellipses-2x.png" />
+    <Content Include="Content\png\ellipses-3x.png" />
+    <Content Include="Content\png\ellipses-4x.png" />
+    <Content Include="Content\png\ellipses-6x.png" />
+    <Content Include="Content\png\ellipses-8x.png" />
+    <Content Include="Content\png\ellipses.png" />
+    <Content Include="Content\png\envelope-closed-2x.png" />
+    <Content Include="Content\png\envelope-closed-3x.png" />
+    <Content Include="Content\png\envelope-closed-4x.png" />
+    <Content Include="Content\png\envelope-closed-6x.png" />
+    <Content Include="Content\png\envelope-closed-8x.png" />
+    <Content Include="Content\png\envelope-closed.png" />
+    <Content Include="Content\png\envelope-open-2x.png" />
+    <Content Include="Content\png\envelope-open-3x.png" />
+    <Content Include="Content\png\envelope-open-4x.png" />
+    <Content Include="Content\png\envelope-open-6x.png" />
+    <Content Include="Content\png\envelope-open-8x.png" />
+    <Content Include="Content\png\envelope-open.png" />
+    <Content Include="Content\png\euro-2x.png" />
+    <Content Include="Content\png\euro-3x.png" />
+    <Content Include="Content\png\euro-4x.png" />
+    <Content Include="Content\png\euro-6x.png" />
+    <Content Include="Content\png\euro-8x.png" />
+    <Content Include="Content\png\euro.png" />
+    <Content Include="Content\png\excerpt-2x.png" />
+    <Content Include="Content\png\excerpt-3x.png" />
+    <Content Include="Content\png\excerpt-4x.png" />
+    <Content Include="Content\png\excerpt-6x.png" />
+    <Content Include="Content\png\excerpt-8x.png" />
+    <Content Include="Content\png\excerpt.png" />
+    <Content Include="Content\png\expand-down-2x.png" />
+    <Content Include="Content\png\expand-down-3x.png" />
+    <Content Include="Content\png\expand-down-4x.png" />
+    <Content Include="Content\png\expand-down-6x.png" />
+    <Content Include="Content\png\expand-down-8x.png" />
+    <Content Include="Content\png\expand-down.png" />
+    <Content Include="Content\png\expand-left-2x.png" />
+    <Content Include="Content\png\expand-left-3x.png" />
+    <Content Include="Content\png\expand-left-4x.png" />
+    <Content Include="Content\png\expand-left-6x.png" />
+    <Content Include="Content\png\expand-left-8x.png" />
+    <Content Include="Content\png\expand-left.png" />
+    <Content Include="Content\png\expand-right-2x.png" />
+    <Content Include="Content\png\expand-right-3x.png" />
+    <Content Include="Content\png\expand-right-4x.png" />
+    <Content Include="Content\png\expand-right-6x.png" />
+    <Content Include="Content\png\expand-right-8x.png" />
+    <Content Include="Content\png\expand-right.png" />
+    <Content Include="Content\png\expand-up-2x.png" />
+    <Content Include="Content\png\expand-up-3x.png" />
+    <Content Include="Content\png\expand-up-4x.png" />
+    <Content Include="Content\png\expand-up-6x.png" />
+    <Content Include="Content\png\expand-up-8x.png" />
+    <Content Include="Content\png\expand-up.png" />
+    <Content Include="Content\png\external-link-2x.png" />
+    <Content Include="Content\png\external-link-3x.png" />
+    <Content Include="Content\png\external-link-4x.png" />
+    <Content Include="Content\png\external-link-6x.png" />
+    <Content Include="Content\png\external-link-8x.png" />
+    <Content Include="Content\png\external-link.png" />
+    <Content Include="Content\png\eye-2x.png" />
+    <Content Include="Content\png\eye-3x.png" />
+    <Content Include="Content\png\eye-4x.png" />
+    <Content Include="Content\png\eye-6x.png" />
+    <Content Include="Content\png\eye-8x.png" />
+    <Content Include="Content\png\eye.png" />
+    <Content Include="Content\png\eyedropper-2x.png" />
+    <Content Include="Content\png\eyedropper-3x.png" />
+    <Content Include="Content\png\eyedropper-4x.png" />
+    <Content Include="Content\png\eyedropper-6x.png" />
+    <Content Include="Content\png\eyedropper-8x.png" />
+    <Content Include="Content\png\eyedropper.png" />
+    <Content Include="Content\png\file-2x.png" />
+    <Content Include="Content\png\file-3x.png" />
+    <Content Include="Content\png\file-4x.png" />
+    <Content Include="Content\png\file-6x.png" />
+    <Content Include="Content\png\file-8x.png" />
+    <Content Include="Content\png\file.png" />
+    <Content Include="Content\png\fire-2x.png" />
+    <Content Include="Content\png\fire-3x.png" />
+    <Content Include="Content\png\fire-4x.png" />
+    <Content Include="Content\png\fire-6x.png" />
+    <Content Include="Content\png\fire-8x.png" />
+    <Content Include="Content\png\fire.png" />
+    <Content Include="Content\png\flag-2x.png" />
+    <Content Include="Content\png\flag-3x.png" />
+    <Content Include="Content\png\flag-4x.png" />
+    <Content Include="Content\png\flag-6x.png" />
+    <Content Include="Content\png\flag-8x.png" />
+    <Content Include="Content\png\flag.png" />
+    <Content Include="Content\png\flash-2x.png" />
+    <Content Include="Content\png\flash-3x.png" />
+    <Content Include="Content\png\flash-4x.png" />
+    <Content Include="Content\png\flash-6x.png" />
+    <Content Include="Content\png\flash-8x.png" />
+    <Content Include="Content\png\flash.png" />
+    <Content Include="Content\png\folder-2x.png" />
+    <Content Include="Content\png\folder-3x.png" />
+    <Content Include="Content\png\folder-4x.png" />
+    <Content Include="Content\png\folder-6x.png" />
+    <Content Include="Content\png\folder-8x.png" />
+    <Content Include="Content\png\folder.png" />
+    <Content Include="Content\png\fork-2x.png" />
+    <Content Include="Content\png\fork-3x.png" />
+    <Content Include="Content\png\fork-4x.png" />
+    <Content Include="Content\png\fork-6x.png" />
+    <Content Include="Content\png\fork-8x.png" />
+    <Content Include="Content\png\fork.png" />
+    <Content Include="Content\png\fullscreen-enter-2x.png" />
+    <Content Include="Content\png\fullscreen-enter-3x.png" />
+    <Content Include="Content\png\fullscreen-enter-4x.png" />
+    <Content Include="Content\png\fullscreen-enter-6x.png" />
+    <Content Include="Content\png\fullscreen-enter-8x.png" />
+    <Content Include="Content\png\fullscreen-enter.png" />
+    <Content Include="Content\png\fullscreen-exit-2x.png" />
+    <Content Include="Content\png\fullscreen-exit-3x.png" />
+    <Content Include="Content\png\fullscreen-exit-4x.png" />
+    <Content Include="Content\png\fullscreen-exit-6x.png" />
+    <Content Include="Content\png\fullscreen-exit-8x.png" />
+    <Content Include="Content\png\fullscreen-exit.png" />
+    <Content Include="Content\png\globe-2x.png" />
+    <Content Include="Content\png\globe-3x.png" />
+    <Content Include="Content\png\globe-4x.png" />
+    <Content Include="Content\png\globe-6x.png" />
+    <Content Include="Content\png\globe-8x.png" />
+    <Content Include="Content\png\globe.png" />
+    <Content Include="Content\png\graph-2x.png" />
+    <Content Include="Content\png\graph-3x.png" />
+    <Content Include="Content\png\graph-4x.png" />
+    <Content Include="Content\png\graph-6x.png" />
+    <Content Include="Content\png\graph-8x.png" />
+    <Content Include="Content\png\graph.png" />
+    <Content Include="Content\png\grid-four-up-2x.png" />
+    <Content Include="Content\png\grid-four-up-3x.png" />
+    <Content Include="Content\png\grid-four-up-4x.png" />
+    <Content Include="Content\png\grid-four-up-6x.png" />
+    <Content Include="Content\png\grid-four-up-8x.png" />
+    <Content Include="Content\png\grid-four-up.png" />
+    <Content Include="Content\png\grid-three-up-2x.png" />
+    <Content Include="Content\png\grid-three-up-3x.png" />
+    <Content Include="Content\png\grid-three-up-4x.png" />
+    <Content Include="Content\png\grid-three-up-6x.png" />
+    <Content Include="Content\png\grid-three-up-8x.png" />
+    <Content Include="Content\png\grid-three-up.png" />
+    <Content Include="Content\png\grid-two-up-2x.png" />
+    <Content Include="Content\png\grid-two-up-3x.png" />
+    <Content Include="Content\png\grid-two-up-4x.png" />
+    <Content Include="Content\png\grid-two-up-6x.png" />
+    <Content Include="Content\png\grid-two-up-8x.png" />
+    <Content Include="Content\png\grid-two-up.png" />
+    <Content Include="Content\png\hard-drive-2x.png" />
+    <Content Include="Content\png\hard-drive-3x.png" />
+    <Content Include="Content\png\hard-drive-4x.png" />
+    <Content Include="Content\png\hard-drive-6x.png" />
+    <Content Include="Content\png\hard-drive-8x.png" />
+    <Content Include="Content\png\hard-drive.png" />
+    <Content Include="Content\png\header-2x.png" />
+    <Content Include="Content\png\header-3x.png" />
+    <Content Include="Content\png\header-4x.png" />
+    <Content Include="Content\png\header-6x.png" />
+    <Content Include="Content\png\header-8x.png" />
+    <Content Include="Content\png\header.png" />
+    <Content Include="Content\png\headphones-2x.png" />
+    <Content Include="Content\png\headphones-3x.png" />
+    <Content Include="Content\png\headphones-4x.png" />
+    <Content Include="Content\png\headphones-6x.png" />
+    <Content Include="Content\png\headphones-8x.png" />
+    <Content Include="Content\png\headphones.png" />
+    <Content Include="Content\png\heart-2x.png" />
+    <Content Include="Content\png\heart-3x.png" />
+    <Content Include="Content\png\heart-4x.png" />
+    <Content Include="Content\png\heart-6x.png" />
+    <Content Include="Content\png\heart-8x.png" />
+    <Content Include="Content\png\heart.png" />
+    <Content Include="Content\png\home-2x.png" />
+    <Content Include="Content\png\home-3x.png" />
+    <Content Include="Content\png\home-4x.png" />
+    <Content Include="Content\png\home-6x.png" />
+    <Content Include="Content\png\home-8x.png" />
+    <Content Include="Content\png\home.png" />
+    <Content Include="Content\png\image-2x.png" />
+    <Content Include="Content\png\image-3x.png" />
+    <Content Include="Content\png\image-4x.png" />
+    <Content Include="Content\png\image-6x.png" />
+    <Content Include="Content\png\image-8x.png" />
+    <Content Include="Content\png\image.png" />
+    <Content Include="Content\png\inbox-2x.png" />
+    <Content Include="Content\png\inbox-3x.png" />
+    <Content Include="Content\png\inbox-4x.png" />
+    <Content Include="Content\png\inbox-6x.png" />
+    <Content Include="Content\png\inbox-8x.png" />
+    <Content Include="Content\png\inbox.png" />
+    <Content Include="Content\png\infinity-2x.png" />
+    <Content Include="Content\png\infinity-3x.png" />
+    <Content Include="Content\png\infinity-4x.png" />
+    <Content Include="Content\png\infinity-6x.png" />
+    <Content Include="Content\png\infinity-8x.png" />
+    <Content Include="Content\png\infinity.png" />
+    <Content Include="Content\png\info-2x.png" />
+    <Content Include="Content\png\info-3x.png" />
+    <Content Include="Content\png\info-4x.png" />
+    <Content Include="Content\png\info-6x.png" />
+    <Content Include="Content\png\info-8x.png" />
+    <Content Include="Content\png\info.png" />
+    <Content Include="Content\png\italic-2x.png" />
+    <Content Include="Content\png\italic-3x.png" />
+    <Content Include="Content\png\italic-4x.png" />
+    <Content Include="Content\png\italic-6x.png" />
+    <Content Include="Content\png\italic-8x.png" />
+    <Content Include="Content\png\italic.png" />
+    <Content Include="Content\png\justify-center-2x.png" />
+    <Content Include="Content\png\justify-center-3x.png" />
+    <Content Include="Content\png\justify-center-4x.png" />
+    <Content Include="Content\png\justify-center-6x.png" />
+    <Content Include="Content\png\justify-center-8x.png" />
+    <Content Include="Content\png\justify-center.png" />
+    <Content Include="Content\png\justify-left-2x.png" />
+    <Content Include="Content\png\justify-left-3x.png" />
+    <Content Include="Content\png\justify-left-4x.png" />
+    <Content Include="Content\png\justify-left-6x.png" />
+    <Content Include="Content\png\justify-left-8x.png" />
+    <Content Include="Content\png\justify-left.png" />
+    <Content Include="Content\png\justify-right-2x.png" />
+    <Content Include="Content\png\justify-right-3x.png" />
+    <Content Include="Content\png\justify-right-4x.png" />
+    <Content Include="Content\png\justify-right-6x.png" />
+    <Content Include="Content\png\justify-right-8x.png" />
+    <Content Include="Content\png\justify-right.png" />
+    <Content Include="Content\png\key-2x.png" />
+    <Content Include="Content\png\key-3x.png" />
+    <Content Include="Content\png\key-4x.png" />
+    <Content Include="Content\png\key-6x.png" />
+    <Content Include="Content\png\key-8x.png" />
+    <Content Include="Content\png\key.png" />
+    <Content Include="Content\png\laptop-2x.png" />
+    <Content Include="Content\png\laptop-3x.png" />
+    <Content Include="Content\png\laptop-4x.png" />
+    <Content Include="Content\png\laptop-6x.png" />
+    <Content Include="Content\png\laptop-8x.png" />
+    <Content Include="Content\png\laptop.png" />
+    <Content Include="Content\png\layers-2x.png" />
+    <Content Include="Content\png\layers-3x.png" />
+    <Content Include="Content\png\layers-4x.png" />
+    <Content Include="Content\png\layers-6x.png" />
+    <Content Include="Content\png\layers-8x.png" />
+    <Content Include="Content\png\layers.png" />
+    <Content Include="Content\png\lightbulb-2x.png" />
+    <Content Include="Content\png\lightbulb-3x.png" />
+    <Content Include="Content\png\lightbulb-4x.png" />
+    <Content Include="Content\png\lightbulb-6x.png" />
+    <Content Include="Content\png\lightbulb-8x.png" />
+    <Content Include="Content\png\lightbulb.png" />
+    <Content Include="Content\png\link-broken-2x.png" />
+    <Content Include="Content\png\link-broken-3x.png" />
+    <Content Include="Content\png\link-broken-4x.png" />
+    <Content Include="Content\png\link-broken-6x.png" />
+    <Content Include="Content\png\link-broken-8x.png" />
+    <Content Include="Content\png\link-broken.png" />
+    <Content Include="Content\png\link-intact-2x.png" />
+    <Content Include="Content\png\link-intact-3x.png" />
+    <Content Include="Content\png\link-intact-4x.png" />
+    <Content Include="Content\png\link-intact-6x.png" />
+    <Content Include="Content\png\link-intact-8x.png" />
+    <Content Include="Content\png\link-intact.png" />
+    <Content Include="Content\png\list-2x.png" />
+    <Content Include="Content\png\list-3x.png" />
+    <Content Include="Content\png\list-4x.png" />
+    <Content Include="Content\png\list-6x.png" />
+    <Content Include="Content\png\list-8x.png" />
+    <Content Include="Content\png\list-rich-2x.png" />
+    <Content Include="Content\png\list-rich-3x.png" />
+    <Content Include="Content\png\list-rich-4x.png" />
+    <Content Include="Content\png\list-rich-6x.png" />
+    <Content Include="Content\png\list-rich-8x.png" />
+    <Content Include="Content\png\list-rich.png" />
+    <Content Include="Content\png\list.png" />
+    <Content Include="Content\png\location-2x.png" />
+    <Content Include="Content\png\location-3x.png" />
+    <Content Include="Content\png\location-4x.png" />
+    <Content Include="Content\png\location-6x.png" />
+    <Content Include="Content\png\location-8x.png" />
+    <Content Include="Content\png\location.png" />
+    <Content Include="Content\png\lock-locked-2x.png" />
+    <Content Include="Content\png\lock-locked-3x.png" />
+    <Content Include="Content\png\lock-locked-4x.png" />
+    <Content Include="Content\png\lock-locked-6x.png" />
+    <Content Include="Content\png\lock-locked-8x.png" />
+    <Content Include="Content\png\lock-locked.png" />
+    <Content Include="Content\png\lock-unlocked-2x.png" />
+    <Content Include="Content\png\lock-unlocked-3x.png" />
+    <Content Include="Content\png\lock-unlocked-4x.png" />
+    <Content Include="Content\png\lock-unlocked-6x.png" />
+    <Content Include="Content\png\lock-unlocked-8x.png" />
+    <Content Include="Content\png\lock-unlocked.png" />
+    <Content Include="Content\png\loop-2x.png" />
+    <Content Include="Content\png\loop-3x.png" />
+    <Content Include="Content\png\loop-4x.png" />
+    <Content Include="Content\png\loop-6x.png" />
+    <Content Include="Content\png\loop-8x.png" />
+    <Content Include="Content\png\loop-circular-2x.png" />
+    <Content Include="Content\png\loop-circular-3x.png" />
+    <Content Include="Content\png\loop-circular-4x.png" />
+    <Content Include="Content\png\loop-circular-6x.png" />
+    <Content Include="Content\png\loop-circular-8x.png" />
+    <Content Include="Content\png\loop-circular.png" />
+    <Content Include="Content\png\loop-square-2x.png" />
+    <Content Include="Content\png\loop-square-3x.png" />
+    <Content Include="Content\png\loop-square-4x.png" />
+    <Content Include="Content\png\loop-square-6x.png" />
+    <Content Include="Content\png\loop-square-8x.png" />
+    <Content Include="Content\png\loop-square.png" />
+    <Content Include="Content\png\loop.png" />
+    <Content Include="Content\png\magnifying-glass-2x.png" />
+    <Content Include="Content\png\magnifying-glass-3x.png" />
+    <Content Include="Content\png\magnifying-glass-4x.png" />
+    <Content Include="Content\png\magnifying-glass-6x.png" />
+    <Content Include="Content\png\magnifying-glass-8x.png" />
+    <Content Include="Content\png\magnifying-glass.png" />
+    <Content Include="Content\png\map-2x.png" />
+    <Content Include="Content\png\map-3x.png" />
+    <Content Include="Content\png\map-4x.png" />
+    <Content Include="Content\png\map-6x.png" />
+    <Content Include="Content\png\map-8x.png" />
+    <Content Include="Content\png\map-marker-2x.png" />
+    <Content Include="Content\png\map-marker-3x.png" />
+    <Content Include="Content\png\map-marker-4x.png" />
+    <Content Include="Content\png\map-marker-6x.png" />
+    <Content Include="Content\png\map-marker-8x.png" />
+    <Content Include="Content\png\map-marker.png" />
+    <Content Include="Content\png\map.png" />
+    <Content Include="Content\png\media-pause-2x.png" />
+    <Content Include="Content\png\media-pause-3x.png" />
+    <Content Include="Content\png\media-pause-4x.png" />
+    <Content Include="Content\png\media-pause-6x.png" />
+    <Content Include="Content\png\media-pause-8x.png" />
+    <Content Include="Content\png\media-pause.png" />
+    <Content Include="Content\png\media-play-2x.png" />
+    <Content Include="Content\png\media-play-3x.png" />
+    <Content Include="Content\png\media-play-4x.png" />
+    <Content Include="Content\png\media-play-6x.png" />
+    <Content Include="Content\png\media-play-8x.png" />
+    <Content Include="Content\png\media-play.png" />
+    <Content Include="Content\png\media-record-2x.png" />
+    <Content Include="Content\png\media-record-3x.png" />
+    <Content Include="Content\png\media-record-4x.png" />
+    <Content Include="Content\png\media-record-6x.png" />
+    <Content Include="Content\png\media-record-8x.png" />
+    <Content Include="Content\png\media-record.png" />
+    <Content Include="Content\png\media-skip-backward-2x.png" />
+    <Content Include="Content\png\media-skip-backward-3x.png" />
+    <Content Include="Content\png\media-skip-backward-4x.png" />
+    <Content Include="Content\png\media-skip-backward-6x.png" />
+    <Content Include="Content\png\media-skip-backward-8x.png" />
+    <Content Include="Content\png\media-skip-backward.png" />
+    <Content Include="Content\png\media-skip-forward-2x.png" />
+    <Content Include="Content\png\media-skip-forward-3x.png" />
+    <Content Include="Content\png\media-skip-forward-4x.png" />
+    <Content Include="Content\png\media-skip-forward-6x.png" />
+    <Content Include="Content\png\media-skip-forward-8x.png" />
+    <Content Include="Content\png\media-skip-forward.png" />
+    <Content Include="Content\png\media-step-backward-2x.png" />
+    <Content Include="Content\png\media-step-backward-3x.png" />
+    <Content Include="Content\png\media-step-backward-4x.png" />
+    <Content Include="Content\png\media-step-backward-6x.png" />
+    <Content Include="Content\png\media-step-backward-8x.png" />
+    <Content Include="Content\png\media-step-backward.png" />
+    <Content Include="Content\png\media-step-forward-2x.png" />
+    <Content Include="Content\png\media-step-forward-3x.png" />
+    <Content Include="Content\png\media-step-forward-4x.png" />
+    <Content Include="Content\png\media-step-forward-6x.png" />
+    <Content Include="Content\png\media-step-forward-8x.png" />
+    <Content Include="Content\png\media-step-forward.png" />
+    <Content Include="Content\png\media-stop-2x.png" />
+    <Content Include="Content\png\media-stop-3x.png" />
+    <Content Include="Content\png\media-stop-4x.png" />
+    <Content Include="Content\png\media-stop-6x.png" />
+    <Content Include="Content\png\media-stop-8x.png" />
+    <Content Include="Content\png\media-stop.png" />
+    <Content Include="Content\png\medical-cross-2x.png" />
+    <Content Include="Content\png\medical-cross-3x.png" />
+    <Content Include="Content\png\medical-cross-4x.png" />
+    <Content Include="Content\png\medical-cross-6x.png" />
+    <Content Include="Content\png\medical-cross-8x.png" />
+    <Content Include="Content\png\medical-cross.png" />
+    <Content Include="Content\png\menu-2x.png" />
+    <Content Include="Content\png\menu-3x.png" />
+    <Content Include="Content\png\menu-4x.png" />
+    <Content Include="Content\png\menu-6x.png" />
+    <Content Include="Content\png\menu-8x.png" />
+    <Content Include="Content\png\menu.png" />
+    <Content Include="Content\png\microphone-2x.png" />
+    <Content Include="Content\png\microphone-3x.png" />
+    <Content Include="Content\png\microphone-4x.png" />
+    <Content Include="Content\png\microphone-6x.png" />
+    <Content Include="Content\png\microphone-8x.png" />
+    <Content Include="Content\png\microphone.png" />
+    <Content Include="Content\png\minus-2x.png" />
+    <Content Include="Content\png\minus-3x.png" />
+    <Content Include="Content\png\minus-4x.png" />
+    <Content Include="Content\png\minus-6x.png" />
+    <Content Include="Content\png\minus-8x.png" />
+    <Content Include="Content\png\minus.png" />
+    <Content Include="Content\png\monitor-2x.png" />
+    <Content Include="Content\png\monitor-3x.png" />
+    <Content Include="Content\png\monitor-4x.png" />
+    <Content Include="Content\png\monitor-6x.png" />
+    <Content Include="Content\png\monitor-8x.png" />
+    <Content Include="Content\png\monitor.png" />
+    <Content Include="Content\png\moon-2x.png" />
+    <Content Include="Content\png\moon-3x.png" />
+    <Content Include="Content\png\moon-4x.png" />
+    <Content Include="Content\png\moon-6x.png" />
+    <Content Include="Content\png\moon-8x.png" />
+    <Content Include="Content\png\moon.png" />
+    <Content Include="Content\png\move-2x.png" />
+    <Content Include="Content\png\move-3x.png" />
+    <Content Include="Content\png\move-4x.png" />
+    <Content Include="Content\png\move-6x.png" />
+    <Content Include="Content\png\move-8x.png" />
+    <Content Include="Content\png\move.png" />
+    <Content Include="Content\png\musical-note-2x.png" />
+    <Content Include="Content\png\musical-note-3x.png" />
+    <Content Include="Content\png\musical-note-4x.png" />
+    <Content Include="Content\png\musical-note-6x.png" />
+    <Content Include="Content\png\musical-note-8x.png" />
+    <Content Include="Content\png\musical-note.png" />
+    <Content Include="Content\png\paperclip-2x.png" />
+    <Content Include="Content\png\paperclip-3x.png" />
+    <Content Include="Content\png\paperclip-4x.png" />
+    <Content Include="Content\png\paperclip-6x.png" />
+    <Content Include="Content\png\paperclip-8x.png" />
+    <Content Include="Content\png\paperclip.png" />
+    <Content Include="Content\png\pencil-2x.png" />
+    <Content Include="Content\png\pencil-3x.png" />
+    <Content Include="Content\png\pencil-4x.png" />
+    <Content Include="Content\png\pencil-6x.png" />
+    <Content Include="Content\png\pencil-8x.png" />
+    <Content Include="Content\png\pencil.png" />
+    <Content Include="Content\png\people-2x.png" />
+    <Content Include="Content\png\people-3x.png" />
+    <Content Include="Content\png\people-4x.png" />
+    <Content Include="Content\png\people-6x.png" />
+    <Content Include="Content\png\people-8x.png" />
+    <Content Include="Content\png\people.png" />
+    <Content Include="Content\png\person-2x.png" />
+    <Content Include="Content\png\person-3x.png" />
+    <Content Include="Content\png\person-4x.png" />
+    <Content Include="Content\png\person-6x.png" />
+    <Content Include="Content\png\person-8x.png" />
+    <Content Include="Content\png\person.png" />
+    <Content Include="Content\png\phone-2x.png" />
+    <Content Include="Content\png\phone-3x.png" />
+    <Content Include="Content\png\phone-4x.png" />
+    <Content Include="Content\png\phone-6x.png" />
+    <Content Include="Content\png\phone-8x.png" />
+    <Content Include="Content\png\phone.png" />
+    <Content Include="Content\png\pie-chart-2x.png" />
+    <Content Include="Content\png\pie-chart-3x.png" />
+    <Content Include="Content\png\pie-chart-4x.png" />
+    <Content Include="Content\png\pie-chart-6x.png" />
+    <Content Include="Content\png\pie-chart-8x.png" />
+    <Content Include="Content\png\pie-chart.png" />
+    <Content Include="Content\png\pin-2x.png" />
+    <Content Include="Content\png\pin-3x.png" />
+    <Content Include="Content\png\pin-4x.png" />
+    <Content Include="Content\png\pin-6x.png" />
+    <Content Include="Content\png\pin-8x.png" />
+    <Content Include="Content\png\pin.png" />
+    <Content Include="Content\png\play-circle-2x.png" />
+    <Content Include="Content\png\play-circle-3x.png" />
+    <Content Include="Content\png\play-circle-4x.png" />
+    <Content Include="Content\png\play-circle-6x.png" />
+    <Content Include="Content\png\play-circle-8x.png" />
+    <Content Include="Content\png\play-circle.png" />
+    <Content Include="Content\png\plus-2x.png" />
+    <Content Include="Content\png\plus-3x.png" />
+    <Content Include="Content\png\plus-4x.png" />
+    <Content Include="Content\png\plus-6x.png" />
+    <Content Include="Content\png\plus-8x.png" />
+    <Content Include="Content\png\plus.png" />
+    <Content Include="Content\png\power-standby-2x.png" />
+    <Content Include="Content\png\power-standby-3x.png" />
+    <Content Include="Content\png\power-standby-4x.png" />
+    <Content Include="Content\png\power-standby-6x.png" />
+    <Content Include="Content\png\power-standby-8x.png" />
+    <Content Include="Content\png\power-standby.png" />
+    <Content Include="Content\png\print-2x.png" />
+    <Content Include="Content\png\print-3x.png" />
+    <Content Include="Content\png\print-4x.png" />
+    <Content Include="Content\png\print-6x.png" />
+    <Content Include="Content\png\print-8x.png" />
+    <Content Include="Content\png\print.png" />
+    <Content Include="Content\png\project-2x.png" />
+    <Content Include="Content\png\project-3x.png" />
+    <Content Include="Content\png\project-4x.png" />
+    <Content Include="Content\png\project-6x.png" />
+    <Content Include="Content\png\project-8x.png" />
+    <Content Include="Content\png\project.png" />
+    <Content Include="Content\png\pulse-2x.png" />
+    <Content Include="Content\png\pulse-3x.png" />
+    <Content Include="Content\png\pulse-4x.png" />
+    <Content Include="Content\png\pulse-6x.png" />
+    <Content Include="Content\png\pulse-8x.png" />
+    <Content Include="Content\png\pulse.png" />
+    <Content Include="Content\png\puzzle-piece-2x.png" />
+    <Content Include="Content\png\puzzle-piece-3x.png" />
+    <Content Include="Content\png\puzzle-piece-4x.png" />
+    <Content Include="Content\png\puzzle-piece-6x.png" />
+    <Content Include="Content\png\puzzle-piece-8x.png" />
+    <Content Include="Content\png\puzzle-piece.png" />
+    <Content Include="Content\png\question-mark-2x.png" />
+    <Content Include="Content\png\question-mark-3x.png" />
+    <Content Include="Content\png\question-mark-4x.png" />
+    <Content Include="Content\png\question-mark-6x.png" />
+    <Content Include="Content\png\question-mark-8x.png" />
+    <Content Include="Content\png\question-mark.png" />
+    <Content Include="Content\png\rain-2x.png" />
+    <Content Include="Content\png\rain-3x.png" />
+    <Content Include="Content\png\rain-4x.png" />
+    <Content Include="Content\png\rain-6x.png" />
+    <Content Include="Content\png\rain-8x.png" />
+    <Content Include="Content\png\rain.png" />
+    <Content Include="Content\png\random-2x.png" />
+    <Content Include="Content\png\random-3x.png" />
+    <Content Include="Content\png\random-4x.png" />
+    <Content Include="Content\png\random-6x.png" />
+    <Content Include="Content\png\random-8x.png" />
+    <Content Include="Content\png\random.png" />
+    <Content Include="Content\png\reload-2x.png" />
+    <Content Include="Content\png\reload-3x.png" />
+    <Content Include="Content\png\reload-4x.png" />
+    <Content Include="Content\png\reload-6x.png" />
+    <Content Include="Content\png\reload-8x.png" />
+    <Content Include="Content\png\reload.png" />
+    <Content Include="Content\png\resize-both-2x.png" />
+    <Content Include="Content\png\resize-both-3x.png" />
+    <Content Include="Content\png\resize-both-4x.png" />
+    <Content Include="Content\png\resize-both-6x.png" />
+    <Content Include="Content\png\resize-both-8x.png" />
+    <Content Include="Content\png\resize-both.png" />
+    <Content Include="Content\png\resize-height-2x.png" />
+    <Content Include="Content\png\resize-height-3x.png" />
+    <Content Include="Content\png\resize-height-4x.png" />
+    <Content Include="Content\png\resize-height-6x.png" />
+    <Content Include="Content\png\resize-height-8x.png" />
+    <Content Include="Content\png\resize-height.png" />
+    <Content Include="Content\png\resize-width-2x.png" />
+    <Content Include="Content\png\resize-width-3x.png" />
+    <Content Include="Content\png\resize-width-4x.png" />
+    <Content Include="Content\png\resize-width-6x.png" />
+    <Content Include="Content\png\resize-width-8x.png" />
+    <Content Include="Content\png\resize-width.png" />
+    <Content Include="Content\png\rss-2x.png" />
+    <Content Include="Content\png\rss-3x.png" />
+    <Content Include="Content\png\rss-4x.png" />
+    <Content Include="Content\png\rss-6x.png" />
+    <Content Include="Content\png\rss-8x.png" />
+    <Content Include="Content\png\rss-alt-2x.png" />
+    <Content Include="Content\png\rss-alt-3x.png" />
+    <Content Include="Content\png\rss-alt-4x.png" />
+    <Content Include="Content\png\rss-alt-6x.png" />
+    <Content Include="Content\png\rss-alt-8x.png" />
+    <Content Include="Content\png\rss-alt.png" />
+    <Content Include="Content\png\rss.png" />
+    <Content Include="Content\png\script-2x.png" />
+    <Content Include="Content\png\script-3x.png" />
+    <Content Include="Content\png\script-4x.png" />
+    <Content Include="Content\png\script-6x.png" />
+    <Content Include="Content\png\script-8x.png" />
+    <Content Include="Content\png\script.png" />
+    <Content Include="Content\png\share-2x.png" />
+    <Content Include="Content\png\share-3x.png" />
+    <Content Include="Content\png\share-4x.png" />
+    <Content Include="Content\png\share-6x.png" />
+    <Content Include="Content\png\share-8x.png" />
+    <Content Include="Content\png\share-boxed-2x.png" />
+    <Content Include="Content\png\share-boxed-3x.png" />
+    <Content Include="Content\png\share-boxed-4x.png" />
+    <Content Include="Content\png\share-boxed-6x.png" />
+    <Content Include="Content\png\share-boxed-8x.png" />
+    <Content Include="Content\png\share-boxed.png" />
+    <Content Include="Content\png\share.png" />
+    <Content Include="Content\png\shield-2x.png" />
+    <Content Include="Content\png\shield-3x.png" />
+    <Content Include="Content\png\shield-4x.png" />
+    <Content Include="Content\png\shield-6x.png" />
+    <Content Include="Content\png\shield-8x.png" />
+    <Content Include="Content\png\shield.png" />
+    <Content Include="Content\png\signal-2x.png" />
+    <Content Include="Content\png\signal-3x.png" />
+    <Content Include="Content\png\signal-4x.png" />
+    <Content Include="Content\png\signal-6x.png" />
+    <Content Include="Content\png\signal-8x.png" />
+    <Content Include="Content\png\signal.png" />
+    <Content Include="Content\png\signpost-2x.png" />
+    <Content Include="Content\png\signpost-3x.png" />
+    <Content Include="Content\png\signpost-4x.png" />
+    <Content Include="Content\png\signpost-6x.png" />
+    <Content Include="Content\png\signpost-8x.png" />
+    <Content Include="Content\png\signpost.png" />
+    <Content Include="Content\png\sort-ascending-2x.png" />
+    <Content Include="Content\png\sort-ascending-3x.png" />
+    <Content Include="Content\png\sort-ascending-4x.png" />
+    <Content Include="Content\png\sort-ascending-6x.png" />
+    <Content Include="Content\png\sort-ascending-8x.png" />
+    <Content Include="Content\png\sort-ascending.png" />
+    <Content Include="Content\png\sort-descending-2x.png" />
+    <Content Include="Content\png\sort-descending-3x.png" />
+    <Content Include="Content\png\sort-descending-4x.png" />
+    <Content Include="Content\png\sort-descending-6x.png" />
+    <Content Include="Content\png\sort-descending-8x.png" />
+    <Content Include="Content\png\sort-descending.png" />
+    <Content Include="Content\png\spreadsheet-2x.png" />
+    <Content Include="Content\png\spreadsheet-3x.png" />
+    <Content Include="Content\png\spreadsheet-4x.png" />
+    <Content Include="Content\png\spreadsheet-6x.png" />
+    <Content Include="Content\png\spreadsheet-8x.png" />
+    <Content Include="Content\png\spreadsheet.png" />
+    <Content Include="Content\png\star-2x.png" />
+    <Content Include="Content\png\star-3x.png" />
+    <Content Include="Content\png\star-4x.png" />
+    <Content Include="Content\png\star-6x.png" />
+    <Content Include="Content\png\star-8x.png" />
+    <Content Include="Content\png\star.png" />
+    <Content Include="Content\png\sun-2x.png" />
+    <Content Include="Content\png\sun-3x.png" />
+    <Content Include="Content\png\sun-4x.png" />
+    <Content Include="Content\png\sun-6x.png" />
+    <Content Include="Content\png\sun-8x.png" />
+    <Content Include="Content\png\sun.png" />
+    <Content Include="Content\png\tablet-2x.png" />
+    <Content Include="Content\png\tablet-3x.png" />
+    <Content Include="Content\png\tablet-4x.png" />
+    <Content Include="Content\png\tablet-6x.png" />
+    <Content Include="Content\png\tablet-8x.png" />
+    <Content Include="Content\png\tablet.png" />
+    <Content Include="Content\png\tag-2x.png" />
+    <Content Include="Content\png\tag-3x.png" />
+    <Content Include="Content\png\tag-4x.png" />
+    <Content Include="Content\png\tag-6x.png" />
+    <Content Include="Content\png\tag-8x.png" />
+    <Content Include="Content\png\tag.png" />
+    <Content Include="Content\png\tags-2x.png" />
+    <Content Include="Content\png\tags-3x.png" />
+    <Content Include="Content\png\tags-4x.png" />
+    <Content Include="Content\png\tags-6x.png" />
+    <Content Include="Content\png\tags-8x.png" />
+    <Content Include="Content\png\tags.png" />
+    <Content Include="Content\png\target-2x.png" />
+    <Content Include="Content\png\target-3x.png" />
+    <Content Include="Content\png\target-4x.png" />
+    <Content Include="Content\png\target-6x.png" />
+    <Content Include="Content\png\target-8x.png" />
+    <Content Include="Content\png\target.png" />
+    <Content Include="Content\png\task-2x.png" />
+    <Content Include="Content\png\task-3x.png" />
+    <Content Include="Content\png\task-4x.png" />
+    <Content Include="Content\png\task-6x.png" />
+    <Content Include="Content\png\task-8x.png" />
+    <Content Include="Content\png\task.png" />
+    <Content Include="Content\png\terminal-2x.png" />
+    <Content Include="Content\png\terminal-3x.png" />
+    <Content Include="Content\png\terminal-4x.png" />
+    <Content Include="Content\png\terminal-6x.png" />
+    <Content Include="Content\png\terminal-8x.png" />
+    <Content Include="Content\png\terminal.png" />
+    <Content Include="Content\png\text-2x.png" />
+    <Content Include="Content\png\text-3x.png" />
+    <Content Include="Content\png\text-4x.png" />
+    <Content Include="Content\png\text-6x.png" />
+    <Content Include="Content\png\text-8x.png" />
+    <Content Include="Content\png\text.png" />
+    <Content Include="Content\png\thumb-down-2x.png" />
+    <Content Include="Content\png\thumb-down-3x.png" />
+    <Content Include="Content\png\thumb-down-4x.png" />
+    <Content Include="Content\png\thumb-down-6x.png" />
+    <Content Include="Content\png\thumb-down-8x.png" />
+    <Content Include="Content\png\thumb-down.png" />
+    <Content Include="Content\png\thumb-up-2x.png" />
+    <Content Include="Content\png\thumb-up-3x.png" />
+    <Content Include="Content\png\thumb-up-4x.png" />
+    <Content Include="Content\png\thumb-up-6x.png" />
+    <Content Include="Content\png\thumb-up-8x.png" />
+    <Content Include="Content\png\thumb-up.png" />
+    <Content Include="Content\png\timer-2x.png" />
+    <Content Include="Content\png\timer-3x.png" />
+    <Content Include="Content\png\timer-4x.png" />
+    <Content Include="Content\png\timer-6x.png" />
+    <Content Include="Content\png\timer-8x.png" />
+    <Content Include="Content\png\timer.png" />
+    <Content Include="Content\png\transfer-2x.png" />
+    <Content Include="Content\png\transfer-3x.png" />
+    <Content Include="Content\png\transfer-4x.png" />
+    <Content Include="Content\png\transfer-6x.png" />
+    <Content Include="Content\png\transfer-8x.png" />
+    <Content Include="Content\png\transfer.png" />
+    <Content Include="Content\png\trash-2x.png" />
+    <Content Include="Content\png\trash-3x.png" />
+    <Content Include="Content\png\trash-4x.png" />
+    <Content Include="Content\png\trash-6x.png" />
+    <Content Include="Content\png\trash-8x.png" />
+    <Content Include="Content\png\trash.png" />
+    <Content Include="Content\png\underline-2x.png" />
+    <Content Include="Content\png\underline-3x.png" />
+    <Content Include="Content\png\underline-4x.png" />
+    <Content Include="Content\png\underline-6x.png" />
+    <Content Include="Content\png\underline-8x.png" />
+    <Content Include="Content\png\underline.png" />
+    <Content Include="Content\png\vertical-align-bottom-2x.png" />
+    <Content Include="Content\png\vertical-align-bottom-3x.png" />
+    <Content Include="Content\png\vertical-align-bottom-4x.png" />
+    <Content Include="Content\png\vertical-align-bottom-6x.png" />
+    <Content Include="Content\png\vertical-align-bottom-8x.png" />
+    <Content Include="Content\png\vertical-align-bottom.png" />
+    <Content Include="Content\png\vertical-align-center-2x.png" />
+    <Content Include="Content\png\vertical-align-center-3x.png" />
+    <Content Include="Content\png\vertical-align-center-4x.png" />
+    <Content Include="Content\png\vertical-align-center-6x.png" />
+    <Content Include="Content\png\vertical-align-center-8x.png" />
+    <Content Include="Content\png\vertical-align-center.png" />
+    <Content Include="Content\png\vertical-align-top-2x.png" />
+    <Content Include="Content\png\vertical-align-top-3x.png" />
+    <Content Include="Content\png\vertical-align-top-4x.png" />
+    <Content Include="Content\png\vertical-align-top-6x.png" />
+    <Content Include="Content\png\vertical-align-top-8x.png" />
+    <Content Include="Content\png\vertical-align-top.png" />
+    <Content Include="Content\png\video-2x.png" />
+    <Content Include="Content\png\video-3x.png" />
+    <Content Include="Content\png\video-4x.png" />
+    <Content Include="Content\png\video-6x.png" />
+    <Content Include="Content\png\video-8x.png" />
+    <Content Include="Content\png\video.png" />
+    <Content Include="Content\png\volume-high-2x.png" />
+    <Content Include="Content\png\volume-high-3x.png" />
+    <Content Include="Content\png\volume-high-4x.png" />
+    <Content Include="Content\png\volume-high-6x.png" />
+    <Content Include="Content\png\volume-high-8x.png" />
+    <Content Include="Content\png\volume-high.png" />
+    <Content Include="Content\png\volume-low-2x.png" />
+    <Content Include="Content\png\volume-low-3x.png" />
+    <Content Include="Content\png\volume-low-4x.png" />
+    <Content Include="Content\png\volume-low-6x.png" />
+    <Content Include="Content\png\volume-low-8x.png" />
+    <Content Include="Content\png\volume-low.png" />
+    <Content Include="Content\png\volume-off-2x.png" />
+    <Content Include="Content\png\volume-off-3x.png" />
+    <Content Include="Content\png\volume-off-4x.png" />
+    <Content Include="Content\png\volume-off-6x.png" />
+    <Content Include="Content\png\volume-off-8x.png" />
+    <Content Include="Content\png\volume-off.png" />
+    <Content Include="Content\png\warning-2x.png" />
+    <Content Include="Content\png\warning-3x.png" />
+    <Content Include="Content\png\warning-4x.png" />
+    <Content Include="Content\png\warning-6x.png" />
+    <Content Include="Content\png\warning-8x.png" />
+    <Content Include="Content\png\warning.png" />
+    <Content Include="Content\png\wifi-2x.png" />
+    <Content Include="Content\png\wifi-3x.png" />
+    <Content Include="Content\png\wifi-4x.png" />
+    <Content Include="Content\png\wifi-6x.png" />
+    <Content Include="Content\png\wifi-8x.png" />
+    <Content Include="Content\png\wifi.png" />
+    <Content Include="Content\png\wrench-2x.png" />
+    <Content Include="Content\png\wrench-3x.png" />
+    <Content Include="Content\png\wrench-4x.png" />
+    <Content Include="Content\png\wrench-6x.png" />
+    <Content Include="Content\png\wrench-8x.png" />
+    <Content Include="Content\png\wrench.png" />
+    <Content Include="Content\png\x-2x.png" />
+    <Content Include="Content\png\x-3x.png" />
+    <Content Include="Content\png\x-4x.png" />
+    <Content Include="Content\png\x-6x.png" />
+    <Content Include="Content\png\x-8x.png" />
+    <Content Include="Content\png\x.png" />
+    <Content Include="Content\png\yen-2x.png" />
+    <Content Include="Content\png\yen-3x.png" />
+    <Content Include="Content\png\yen-4x.png" />
+    <Content Include="Content\png\yen-6x.png" />
+    <Content Include="Content\png\yen-8x.png" />
+    <Content Include="Content\png\yen.png" />
+    <Content Include="Content\png\zoom-in-2x.png" />
+    <Content Include="Content\png\zoom-in-3x.png" />
+    <Content Include="Content\png\zoom-in-4x.png" />
+    <Content Include="Content\png\zoom-in-6x.png" />
+    <Content Include="Content\png\zoom-in-8x.png" />
+    <Content Include="Content\png\zoom-in.png" />
+    <Content Include="Content\png\zoom-out-2x.png" />
+    <Content Include="Content\png\zoom-out-3x.png" />
+    <Content Include="Content\png\zoom-out-4x.png" />
+    <Content Include="Content\png\zoom-out-6x.png" />
+    <Content Include="Content\png\zoom-out-8x.png" />
+    <Content Include="Content\png\zoom-out.png" />
+    <Content Include="Data\loader.sql" />
+    <Content Include="Data\seed.txt" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
+    <None Include="Properties\PublishProfiles\NSIX20180 - Web Deploy.pubxml" />
+    <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-route.min.js" />
+    <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\angular.min.js" />
+    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular-route.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\SuspiciousActivityCodeSimpleTypes\Create.cshtml" />
+    <Content Include="Views\SuspiciousActivityCodeSimpleTypes\Delete.cshtml" />
+    <Content Include="Views\SuspiciousActivityCodeSimpleTypes\Details.cshtml" />
+    <Content Include="Views\SuspiciousActivityCodeSimpleTypes\Edit.cshtml" />
+    <Content Include="Views\SuspiciousActivityCodeSimpleTypes\Index.cshtml" />
+    <Content Include="Views\TargetSectorCodeSimpleTypes\Create.cshtml" />
+    <Content Include="Views\TargetSectorCodeSimpleTypes\Delete.cshtml" />
+    <Content Include="Views\TargetSectorCodeSimpleTypes\Details.cshtml" />
+    <Content Include="Views\TargetSectorCodeSimpleTypes\Edit.cshtml" />
+    <Content Include="Views\TargetSectorCodeSimpleTypes\Index.cshtml" />
+    <Content Include="Views\TipClassCodeSimpleTypes\Create.cshtml" />
+    <Content Include="Views\TipClassCodeSimpleTypes\Delete.cshtml" />
+    <Content Include="Views\TipClassCodeSimpleTypes\Details.cshtml" />
+    <Content Include="Views\TipClassCodeSimpleTypes\Edit.cshtml" />
+    <Content Include="Views\TipClassCodeSimpleTypes\Index.cshtml" />
+    <Content Include="Views\TipDomainCodeSimpleTypes\Create.cshtml" />
+    <Content Include="Views\TipDomainCodeSimpleTypes\Delete.cshtml" />
+    <Content Include="Views\TipDomainCodeSimpleTypes\Details.cshtml" />
+    <Content Include="Views\TipDomainCodeSimpleTypes\Edit.cshtml" />
+    <Content Include="Views\TipDomainCodeSimpleTypes\Index.cshtml" />
+    <Content Include="Views\SAR\Create.cshtml" />
+    <Content Include="Views\SAR\Delete.cshtml" />
+    <Content Include="Views\SAR\Details.cshtml" />
+    <Content Include="Views\SAR\Edit.cshtml" />
+    <Content Include="Views\SAR\Index.cshtml" />
+    <Content Include="Views\ExternalSAR\Create.cshtml" />
+    <Content Include="Views\ExternalSAR\Delete.cshtml" />
+    <Content Include="Views\ExternalSAR\Details.cshtml" />
+    <Content Include="Views\ExternalSAR\Edit.cshtml" />
+    <Content Include="Views\ExternalSAR\Index.cshtml" />
+    <Content Include="Views\ExternalSAR\ThankYou.cshtml" />
+    <Content Include="Views\SAR\MapAddress.cshtml" />
+    <Content Include="Views\SAR\map.cshtml" />
+    <Content Include="Views\Vehicles\Create.cshtml" />
+    <Content Include="Views\Vehicles\Delete.cshtml" />
+    <Content Include="Views\Vehicles\Details.cshtml" />
+    <Content Include="Views\Vehicles\Edit.cshtml" />
+    <Content Include="Views\Vehicles\Index.cshtml" />
+    <Content Include="Views\People\Create.cshtml" />
+    <Content Include="Views\People\Delete.cshtml" />
+    <Content Include="Views\People\Details.cshtml" />
+    <Content Include="Views\People\Edit.cshtml" />
+    <Content Include="Views\People\Index.cshtml" />
+    <Content Include="Views\VehicleMakes\Create.cshtml" />
+    <Content Include="Views\VehicleMakes\Delete.cshtml" />
+    <Content Include="Views\VehicleMakes\Details.cshtml" />
+    <Content Include="Views\VehicleMakes\Edit.cshtml" />
+    <Content Include="Views\VehicleMakes\Index.cshtml" />
+    <Content Include="Views\VehicleModels\Create.cshtml" />
+    <Content Include="Views\VehicleModels\Delete.cshtml" />
+    <Content Include="Views\VehicleModels\Details.cshtml" />
+    <Content Include="Views\VehicleModels\Edit.cshtml" />
+    <Content Include="Views\VehicleModels\Index.cshtml" />
+    <Content Include="Views\Vehicles\Images.cshtml" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\File\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901231915161_Poo.resx">
+      <DependentUpon>201901231915161_Poo.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50847</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44355/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>https://localhost:44355/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.8.2\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

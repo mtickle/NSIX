@@ -1,0 +1,184 @@
+﻿@model NSIX.Models.Person
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Person</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ethnicity.EthnicityCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ethnicity.EthnicityCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EyeColor.EyeColorCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EyeColor.EyeColorCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender.GenderCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender.GenderCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HairColor.HairColorCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HairColor.HairColorCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Height.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Height.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nationality.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Race.RaceCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Race.RaceCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkinTone.SkinToneCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkinTone.SkinToneCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weight.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weight.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MiddleName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MiddleName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Suffix)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Suffix)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Age)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eyewear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eyewear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacialHair)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacialHair)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhysicalDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhysicalDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alias)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alias)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherInformation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherInformation)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,244 @@
+﻿@*@model NSIX.Models.SAR*@
+@model NSIX.Models.SarIndexData
+
+@{
+    ViewBag.Title = "Suspicious Activity Report Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <br />
+
+    <h4>Vehicles</h4>
+
+    <table class="table">
+        <tr>
+            <th>State</th>
+            <th>Plate</th>
+            <th>Color</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.SarVehicles)
+        {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.Vehicle.State.Name)</td>
+            <td>@Html.DisplayFor(modelItem => item.Vehicle.LicencePlate)</td>
+            <td>@Html.DisplayFor(modelItem => item.Vehicle.VehicleColor.ColorName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Vehicle.VehicleMake.MakeName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Vehicle.VehicleModel.ModelName)</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", "Vehicles", new { id = item.VehicleID, SarId = item.SarID }, null) |
+                @Html.ActionLink("Details", "Details", "Vehicles", new { id = item.VehicleID, SarId = item.SarID }, null) |
+                @Html.ActionLink("Remove", "Remove", "Vehicles", new { id = item.VehicleID, SarId = item.SarID }, null)
+            </td>
+        </tr>
+        }
+    </table>
+
+
+    <dl class="dl-horizontal">
+        <dt>
+            <input type="button" class="btn btn-default" value="Add New Vehicle" onclick="location.href='@Url.Action("Create","Vehicles", new { id = Model.SARs.SarID } )'" />
+            <input type="button" class="btn btn-default" value="Add Existing Vehicle" onclick="location.href='@Url.Action("Index","Vehicles", new { id = Model.SARs.SarID } )'" />
+        </dt>
+    </dl>
+
+    <h4>Observed Date and Time</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SARs.ActivityDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SARs.ActivityDate)
+        </dd>
+
+        <dt>
+                @Html.DisplayNameFor(model => model.SARs.ActivityTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.ActivityTime)
+            </dd>
+
+        </dl>
+
+        <br />
+        <h4>Location Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.Location)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.Location)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.State.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.State.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.ZipCode)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.ZipCode)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.FullAddress)
+            </dt>
+
+            <dd>
+                <div id="FullAddress">
+                    @Model.SARs.FullAddress
+                </div>
+            </dd>
+
+            <dt>
+                Map
+            </dt>
+            <dd>
+                <div class="embed-responsive embed-responsive-4by3">
+                    <iframe src="//www.google.com/maps/embed/v1/place?q=@Model.SARs.FullAddress&zoom=17&key=AIzaSyAD_LjoZVdHl3kzHvfGRl_WX21oxeCJdnQ"></iframe>
+                </div>
+            </dd>
+        </dl>
+
+        <br />
+        <h4>Activity Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.Description)
+            </dd>
+
+            <dt>
+                Suspicious Activity
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.SuspiciousActivityCodeSimpleType.Description)
+            </dd>
+
+            <dt>
+                Target Sector
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.TargetSectorCodeSimpleType.Description)
+            </dd>
+
+            <dt>
+                Tip Domain
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.TipDomainCodeSimpleType.Description)
+            </dd>
+
+
+            <dt>
+                Tip Class
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.TipClassCodeSimpleType.Description)
+            </dd>
+        </dl>
+
+        <br />
+        <h4>Audit Details</h4>
+        <hr />
+        <dl class="dl-horizontal">
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.CreatedByName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.CreatedByName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.CreatedByID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.CreatedByID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.CreatedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.CreatedDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.UpdatedByName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.UpdatedByName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.UpdatedByID)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.UpdatedByID)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SARs.UpdatedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SARs.UpdatedDate)
+            </dd>
+
+    </dl>
+</div>
+<p>
+    <hr />
+    <input type="button" class="btn btn-default" value="Edit" onclick="location.href='@Url.Action("Edit","SAR", new { id = Model.SARs.SarID } )'" />
+    <input type="button" class="btn btn-default" value="Cancel" onclick="location.href='@Url.Action("", "SAR")'" />
+</p>
+

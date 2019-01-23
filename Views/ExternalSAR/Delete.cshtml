@@ -1,0 +1,168 @@
+﻿@model NSIX.Models.SAR
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SAR</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GetTargetSectorCodeSimpleType.FacetValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GetTargetSectorCodeSimpleType.FacetValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GetTipDomainCodeSimpleType.FacetValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GetTipDomainCodeSimpleType.FacetValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.State.Abbrev)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.State.Abbrev)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SuspiciousActivityCodeSimpleType.FacetValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuspiciousActivityCodeSimpleType.FacetValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipClassCodeSimpleType.FacetValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipClassCodeSimpleType.FacetValue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActivityDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActivityTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActivityTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZipCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedByName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedByName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedByID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedByID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedByName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedByName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedByID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedByID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UpdatedDate)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,74 @@
+﻿@model NSIX.Models.Vehicle
+
+@{
+    ViewBag.Title = "Delete Vehicle";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<div>
+   <hr />
+   <dl class="dl-horizontal">
+
+       <dt>
+           @Html.DisplayNameFor(model => model.LicencePlate)
+       </dt>
+
+       <dd>
+           @Html.DisplayFor(model => model.LicencePlate)
+       </dd>
+
+
+       <dt>
+           State of Registration
+       </dt>
+
+       <dd>
+           @Html.DisplayFor(model => model.State.Name)
+       </dd>
+
+       <dt>
+           Color
+       </dt>
+
+       <dd>
+           @Html.DisplayFor(model => model.VehicleColor.ColorName)
+       </dd>
+
+       <dt>
+           Make
+       </dt>
+
+       <dd>
+           @Html.DisplayFor(model => model.VehicleMake.MakeName)
+       </dd>
+
+       <dt>
+           Model
+       </dt>
+
+       <dd>
+           @Html.DisplayFor(model => model.VehicleModel.ModelName)
+       </dd>
+
+
+   </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-default" />
+        @if (ViewBag.SarID != null)
+    {
+        <input type="button" class="btn btn-default" value="Cancel" onclick="location.href='@Url.Action("Details", "SAR", new { id = ViewBag.SarId })'" />
+
+}
+else
+{
+    <input type="button" class="btn btn-default" value="Cancel" onclick="location.href='@Url.Action("Index", "Vehicles")'" />
+}
+    </div>
+    }
+</div>

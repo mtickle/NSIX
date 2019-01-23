@@ -1,0 +1,91 @@
+﻿@model IEnumerable<NSIX.Models.Vehicle>
+
+@{
+    ViewBag.Title = "Manage Vehicles";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @{if (Request.IsAuthenticated && ViewBag.ShowBackToVehicles)
+        {
+                <input type="button" class="btn btn-default" value="Create New" onclick="location.href='@Url.Action("Create", "Vehicles")'" />
+        }
+    }
+</p>
+
+   @if (ViewBag.ShowVehicleWarning)
+    {
+<div class="alert alert-warning" role="alert">
+    You searching for a vehicle to attach to SAR #@ViewBag.SarId
+    @Html.ActionLink("[Cancel]", "Details", "SAR", new { id = ViewBag.SarId }, null)
+</div>
+    }
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            State
+        </th>
+        <th>
+            Plate Number
+        </th>
+        <th>
+            Color
+        </th>
+        <th>
+            Make
+        </th>
+        <th>
+            Model
+        </th>
+
+        <th></th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.State.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LicencePlate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleColor.ColorName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleMake.MakeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleModel.ModelName)
+            </td>
+         
+
+            <td>
+                @if (ViewBag.ShowVehicleWarning)
+    {
+            @Html.ActionLink("Attach", "Attach", new { id = item.VehicleID, SarID = ViewBag.SarID })
+}
+else
+{
+            @Html.ActionLink("Edit | ", "Edit", new { id = item.VehicleID })
+            @Html.ActionLink("Details | ", "Details", new { id = item.VehicleID })
+            @Html.ActionLink("Delete", "Delete", new { id = item.VehicleID })
+
+                
+
+}
+            </td>
+            <td>
+                @if (item.SarVehicles.Count > 0)
+                {
+                <img src="~/Content/png/document-2x.png" title="This vehicle is linked to one or more SARs">
+                }
+            </td>
+        </tr>
+    }
+
+</table>

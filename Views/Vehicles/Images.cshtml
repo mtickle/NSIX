@@ -1,0 +1,65 @@
+﻿@*@model NSIX.Models.Vehicle*@
+
+@model NSIX.Models.VehicleIndexData
+@{
+    ViewBag.Title = "Vehicle Images";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.LicencePlate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.LicencePlate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.State.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.State.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.VehicleColor.ColorCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.VehicleColor.ColorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.VehicleMake.MakeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.VehicleMake.MakeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.VehicleModel.ModelCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.VehicleModel.ModelName)
+        </dd>
+
+
+
+    </dl>
+</div>
+
+<br />
+
+
+<p>
+       <input type="button" class="btn btn-default" value="Cancel" onclick="location.href='@Url.Action("Details", "SAR", new { id = ViewBag.SarId })'" />
+
+</p>

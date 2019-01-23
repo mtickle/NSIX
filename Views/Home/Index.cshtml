@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "NSIX";
+    ViewBag.Description = "Keep America safe! Tell on your friends and neighbors if they seem to be up to no good.";
+}
+
+
+@if (Request.IsAuthenticated)
+{
+    <br />
+    <div class="jumbotron">
+        <h1>@ViewBag.Title</h1>
+        <p class="lead">@ViewBag.Description</p>
+        <p><a href="/ExternalSAR/Create" class="btn btn-primary btn-lg">Report It! &raquo;</a></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Manage Entities</h3>
+            <p>
+                <ul>
+                    <li>@Html.ActionLink("SARs", "Index", "SAR", null, null)</li>
+                    <li>@Html.ActionLink("Persons", "Index", "People", null, null)</li>
+                    <li>@Html.ActionLink("Vehicles", "Index", "Vehicles", null, null)</li>
+                </ul>
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h3>Manage SAR Activities</h3>
+            <p>
+                <ul>
+                    <li>@Html.ActionLink("Sectors", "Index", "TargetSectorCodeSimpleTypes", null, null)</li>
+                    <li>@Html.ActionLink("Activities", "Index", "SuspiciousActivityCodeSimpleTypes", null, null)</li>
+                    <li>@Html.ActionLink("Classes", "Index", "TipClassCodeSimpleTypes", null, null)</li>
+                    <li>@Html.ActionLink("Domains", "Index", "TipDomainCodeSimpleTypes", null, null)</li>
+
+                </ul>
+            </p>
+        </div>
+
+        <div class="col-md-4">
+            <h3>Manage Other Data</h3>
+            <ul>
+                <li>@Html.ActionLink("Vehicle Makes", "Index", "VehicleMakes", null, null)</li>
+                <li>@Html.ActionLink("Vehicle Models", "Index", "VehicleModels", null, null)</li>
+            </ul>
+        </div>
+
+    </div>
+}
+else
+{
+
+    <br />
+    <div class="jumbotron">
+        <h1>NSIX USA</h1>
+        <p class="lead">Keep America safe! Tell on your friends and neighbors if they seem to be up to no good.</p>
+        <p><a href="/ExternalSAR/Create" class="btn btn-primary btn-lg">Report It! &raquo;</a></p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Report Suspicious Activity</h2>
+            <p>
+                Prompt and detailed reporting of suspicious activities can help prevent violent crimes or terrorist attacks.  If you see suspicious activity, please report it to your local police department. Local law enforcement officers can respond quickly.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Mission Statement</h2>
+            <p>
+                To promote public safety by operating in a public-private partnership that collects, evaluates, analyzes, and disseminates information and intelligence in a timely and secure manner while protecting the privacy rights of the public.
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2>Vision Statement</h2>
+            <p>A leader and partner in the prevention of threats to health, safety, and security through the analysis and sharing of information and actionable intelligence.</p>
+        </div>
+
+    </div>
+
+}

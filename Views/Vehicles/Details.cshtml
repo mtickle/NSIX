@@ -1,0 +1,137 @@
+﻿@*@model NSIX.Models.Vehicle*@
+
+
+
+@model NSIX.Models.VehicleIndexData
+@{
+    ViewBag.Title = "Vehicle Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.LicencePlate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.LicencePlate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.State.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.State.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.VehicleColor.ColorCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.VehicleColor.ColorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.VehicleMake.MakeCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.VehicleMake.MakeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vehicle.VehicleModel.ModelCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vehicle.VehicleModel.ModelName)
+        </dd>
+
+
+        @if (Model.Vehicle.Files.Any(f => f.FileType == NSIX.Models.FileType.Avatar))
+        {
+            <dt>
+                Image
+            </dt>
+            <dd>
+                <img src="~/File?id=@Model.Vehicle.Files.First(f => f.FileType == NSIX.Models.FileType.Avatar).FileId" alt="avatar" />
+            </dd>
+        }
+
+
+
+    </dl>
+</div>
+
+    @if (Model.SarVehicles.Count() > 0)
+    {
+
+        <h4>SARs Referencing This Vehicle</h4>
+
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Activity Date
+                </th>
+                <th>
+                    Activity Time
+                </th>
+                <th>
+                    Description
+                </th>
+                <th>
+                    City
+                </th>
+                <th>
+                    State
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.SarVehicles)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SAR.ActivityDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SAR.ActivityTime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SAR.TipClassCodeSimpleType.Description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SAR.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SAR.StateAbbrev)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Go to SAR", "Details", "SAR", new { id = item.SarID }, null)
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    }
+
+    <p>
+        @if (ViewBag.SarID != null)
+        {
+            <input type="button" class="btn btn-default" value="Cancel" onclick="location.href='@Url.Action("Details", "SAR", new { id = ViewBag.SarId })'" />
+
+        }
+        else
+        {
+            <input type="button" class="btn btn-default" value="Cancel" onclick="location.href='@Url.Action("Index", "Vehicles")'" />
+        }
+        <input type="button" class="btn btn-default" value="Edit" onclick="location.href='@Url.Action("Edit","Vehicles", new { id = Model.Vehicle.VehicleID, SarId = ViewBag.SarID } )'" />
+        <input type="button" class="btn btn-default" value="Images" onclick="location.href='@Url.Action("Images","Vehicles", new { id = Model.Vehicle.VehicleID, SarId = ViewBag.SarID } )'" />
+    </p>

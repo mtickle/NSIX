@@ -1,0 +1,34 @@
+﻿@model NSIX.Models.SuspiciousActivityCodeSimpleType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SuspiciousActivityCodeSimpleType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Facet Value
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacetValue)
+        </dd>
+
+        <dt>
+            Description
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SuspiciousActivityCodeSimpleTypeID }) |
+    <input type="button" class="btn btn-default" value="Cancel" onclick="location.href='@Url.Action("", "SuspiciousActivityCodeSimpleTypes")'" />
+</p>

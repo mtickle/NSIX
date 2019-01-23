@@ -1,0 +1,135 @@
+﻿@model IEnumerable<NSIX.Models.SAR>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GetTargetSectorCodeSimpleType.FacetValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GetTipDomainCodeSimpleType.FacetValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.State.Abbrev)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SuspiciousActivityCodeSimpleType.FacetValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipClassCodeSimpleType.FacetValue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActivityDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActivityTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedByName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedByID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedByName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedByID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UpdatedDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GetTargetSectorCodeSimpleType.FacetValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GetTipDomainCodeSimpleType.FacetValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.State.Abbrev)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SuspiciousActivityCodeSimpleType.FacetValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipClassCodeSimpleType.FacetValue)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActivityDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActivityTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ZipCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedByName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedByID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedByName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedByID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UpdatedDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
